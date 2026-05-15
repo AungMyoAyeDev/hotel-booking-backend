@@ -19,7 +19,10 @@ import analyticRouter from "./routes/analytic.route";
 import cleanupRouter from "./routes/cleanup.route";
 import { isAuthenticated } from "./middleware/isAuthenticated";
 import { customLogger } from "./middleware/customLogger";
+import { swaggerspec } from "./lib/swagger";
+import swaggerUi from "swagger-ui-express";
 import routers from "./routes";
+import { spawn } from "child_process";
 
 dotenv.config();
 
@@ -81,7 +84,7 @@ app.use(customLogger);
 // app.use("/api/v1/room", roomRouter);
 // app.use('/api/v1/auto', cleanupRouter)
 app.use("/api/v1", routers);
-
+app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerspec));
 //error handler middleware.
 app.use(errorHandler);
 
