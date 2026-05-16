@@ -19,10 +19,9 @@ import analyticRouter from "./routes/analytic.route";
 import cleanupRouter from "./routes/cleanup.route";
 import { isAuthenticated } from "./middleware/isAuthenticated";
 import { customLogger } from "./middleware/customLogger";
-import { swaggerspec } from "./lib/swagger";
+import { swaggerspec } from "./swagger";
 import swaggerUi from "swagger-ui-express";
 import routers from "./routes";
-import { spawn } from "child_process";
 
 dotenv.config();
 
